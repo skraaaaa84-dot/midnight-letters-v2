@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#150b21">
+  <title>真夜中の手紙｜匿名恋愛メディア</title>
+  <meta name="description" content="誰にも言えない想いを、夜にそっと預ける匿名恋愛メディア。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="aurora one"></div>
+  <div class="aurora two"></div>
+
+  <div id="ageGate" class="age-gate">
+    <section class="age-card">
+      <div class="heart-moon">♡</div>
+      <p class="eyebrow">MIDNIGHT LETTERS</p>
+      <h1>秘密をそっと預ける、<br>夜の読書室</h1>
+      <p>恋愛・人間関係を扱う18歳以上向けメディアです。</p>
+      <button id="enterButton" class="primary">18歳以上です</button>
+    </section>
+  </div>
+
+  <header>
+    <a href="#top" class="brand"><span>♡</span> 真夜中の手紙</a>
+    <nav>
+      <a href="#stories">手紙</a>
+      <a href="#ranking">人気</a>
+      <a href="#submit">投稿</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="open-pill"><i></i> 今夜も開館中</div>
+        <p class="eyebrow">OPEN AFTER MIDNIGHT</p>
+        <h1>誰にも言えない想いは、<br><em>夜になると少しだけ<br>正直になる。</em></h1>
+        <p class="lead">匿名の恋愛体験と、心に残る夜の物語。</p>
+        <a class="primary button-link" href="#stories">今夜の一通を読む</a>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span>
+        <div class="envelope">
+          <div class="letter">
+            <small>Tonight's Letter</small>
+            <strong>午前0時の秘密</strong>
+          </div>
+          <div class="seal">♡</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="section">
+      <div class="section-head">
+        <div><p class="eyebrow">TONIGHT'S STORIES</p><h2>今夜届いた手紙</h2></div>
+        <label class="search"><span>⌕</span><input id="searchInput" placeholder="手紙を検索"></label>
+      </div>
+
+      <div id="connectionNotice" class="notice hidden"></div>
+
+      <div class="filters" id="filters">
+        <button class="active" data-category="すべて">すべて</button>
+        <button data-category="秘密">秘密</button>
+        <button data-category="再会">再会</button>
+        <button data-category="片思い">片思い</button>
+        <button data-category="失恋">失恋</button>
+      </div>
+
+      <div id="storyGrid" class="story-grid"></div>
+      <div id="emptyState" class="empty hidden">条件に合う手紙はまだありません。</div>
+    </section>
+
+    <section id="ranking" class="section">
+      <p class="eyebrow">POPULAR TONIGHT</p>
+      <h2>今夜、読まれている手紙</h2>
+      <div id="rankingList" class="ranking-list"></div>
+    </section>
+
+    <section id="submit" class="section submit-card">
+      <div class="submit-copy">
+        <p class="eyebrow">SEND YOUR LETTER</p>
+        <h2>誰にも言えない話を、<br>ここに置いていきませんか。</h2>
+        <p>名前は不要です。投稿は確認待ちで保存され、承認されるまで公開されません。</p>
+      </div>
+
+      <form id="storyForm">
+        <label>タイトル
+          <input name="title" minlength="3" maxlength="50" placeholder="例：あの夜、言えなかったこと" required>
+        </label>
+        <label>カテゴリー
+          <select name="category">
+            <option>秘密</option><option>再会</option><option>片思い</option><option>失恋</option>
+          </select>
+        </label>
+        <label>本文
+          <textarea id="bodyInput" name="body" minlength="20" maxlength="1500" rows="7" placeholder="あなたの言葉で書いてください" required></textarea>
+        </label>
+        <div class="form-meta"><span id="charCount">0 / 1500</span><span>匿名で送信されます</span></div>
+        <button id="submitButton" class="primary" type="submit">封筒に入れて送る</button>
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span>♡</span> 真夜中の手紙</div>
+    <p>誰にも言えない本音が、誰かの夜を少しだけ軽くする。</p>
+    <small>© 2026 Midnight Letters</small>
+  </footer>
+
+  <div id="storyModal" class="modal hidden">
+    <div class="modal-bg"></div>
+    <article class="modal-card">
+      <button id="modalClose" class="modal-close">×</button>
+      <p id="modalCategory" class="eyebrow"></p>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody" class="modal-body"></div>
+      <button id="localLikeButton" class="soft-button">♡ 共感した <span id="modalLikes"></span></button>
+    </article>
+  </div>
+
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
