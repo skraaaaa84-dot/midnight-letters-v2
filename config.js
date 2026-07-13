@@ -12,6 +12,6 @@ window.MIDNIGHT_CONFIG = {
 ・Secret key / service_role は絶対に入れないでください。
 */
 window.MIDNIGHT_CONFIG = {
-  supabaseUrl: "https://qcskdchqfzfdqezathhc.supabase.co",
+  supabaseUrl: "https://qcskdchqfzfdqezathhc.supabase.com",
   supabasePublishableKey: "sb_publishable_SufnpjcaizzEovEYpE2j6w_W5cjjYC1"
 };
